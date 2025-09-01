@@ -1,30 +1,39 @@
 import { User } from "@/lib/user";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Slider from "@react-native-community/slider";
-import { Video } from "expo-av";
-import React, { useRef, useState } from "react";
+import { ResizeMode, Video } from "expo-av";
+import React, { useRef, useRef as useRefAlias, useState } from "react";
 import {
-    PanResponder,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  PanResponder,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
-interface VideoPlayerCardProps {
+type VideoPlayerCardProps = {
   userData: User;
-}
+  videoUri?: string;
+  onPosition?: (sec: number) => void;
+  onStrokeComplete?: (payload: { d: string; tStartMillis: number; tEndMillis: number }) => void;
+  strokes?: string[];
+};
 
-export default function VideoPlayerCard({ userData }: VideoPlayerCardProps) {
+export default function VideoPlayerCard({
+  userData,
+  videoUri = "https://cdn.esawebb.org/archives/videos/hd_1080p25_screen/weic2513d.mp4",
+  onPosition,
+  onStrokeComplete,
+  strokes = [],
+}: VideoPlayerCardProps) {
   const playerRef = useRef<Video>(null);
   const [status, setStatus] = useState<any>({});
   const [duration, setDuration] = useState(0);
 
-  // Drawing state
-  const [paths, setPaths] = useState<string[]>([]);
   const [currentPath, setCurrentPath] = useState("");
   const [drawMode, setDrawMode] = useState(false);
+  const strokeStartMsRef = useRefAlias<number>(0);
 
   const formatTimestamp = (seconds: number) => {
     const hrs = String(Math.floor(seconds / 3600)).padStart(2, "0");
@@ -33,7 +42,7 @@ export default function VideoPlayerCard({ userData }: VideoPlayerCardProps) {
     return `${hrs}:${mins}:${secs}`;
   };
 
-  const initials = userData.name
+  const initials = (userData?.name || "U")
     .split(" ")
     .map((p) => p[0])
     .filter(Boolean)
@@ -41,63 +50,96 @@ export default function VideoPlayerCard({ userData }: VideoPlayerCardProps) {
     .join("")
     .toUpperCase();
 
-  // PanResponder for drawing
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => drawMode,
-    onPanResponderMove: (_, gesture) => {
-      const { moveX, moveY } = gesture;
-      setCurrentPath((prev) => prev + ` L${moveX} ${moveY}`);
+    onMoveShouldSetPanResponder: () => drawMode,
+    onPanResponderGrant: (evt) => {
+      const { locationX, locationY } = evt.nativeEvent as any;
+      setCurrentPath(`M${locationX} ${locationY}`);
+      playerRef.current?.pauseAsync().catch(() => {});
+      strokeStartMsRef.current = Math.round(status?.positionMillis ?? 0);
+    },
+    onPanResponderMove: (evt) => {
+      const { locationX, locationY } = evt.nativeEvent as any;
+      setCurrentPath((prev) => `${prev} L${locationX} ${locationY}`);
     },
     onPanResponderRelease: () => {
-      if (currentPath) {
-        setPaths((prev) => [...prev, currentPath]);
-        setCurrentPath("");
+      const d = currentPath.trim();
+      if (d) {
+        const tEnd = Math.round(status?.positionMillis ?? strokeStartMsRef.current);
+        onStrokeComplete?.({ d, tStartMillis: strokeStartMsRef.current, tEndMillis: tEnd });
       }
+      setCurrentPath(""); // clear preview; persisted path will be rendered by parent when active
+    },
+    onPanResponderTerminate: () => {
+      const d = currentPath.trim();
+      if (d) {
+        const tEnd = Math.round(status?.positionMillis ?? strokeStartMsRef.current);
+        onStrokeComplete?.({ d, tStartMillis: strokeStartMsRef.current, tEndMillis: tEnd });
+      }
+      setCurrentPath("");
     },
   });
 
+  const toggleDraw = async () => {
+    const next = !drawMode;
+    setDrawMode(next);
+    if (next) await playerRef.current?.pauseAsync().catch(() => {});
+  };
+
   return (
     <View style={styles.card}>
-      {/* Video */}
       <View style={{ position: "relative" }}>
         <Video
           ref={playerRef}
-          source={{ uri: "https://www.w3schools.com/html/mov_bbb.mp4" }}
+          source={{ uri: videoUri }}
           style={styles.video}
           useNativeControls={false}
+           resizeMode={ResizeMode.COVER} 
           onPlaybackStatusUpdate={(s: any) => {
+            if (!("isLoaded" in s) || !s.isLoaded) return;
             setStatus(s);
-            if (s.durationMillis) {
-              setDuration(s.durationMillis / 1000);
-            }
+            if (s.durationMillis) setDuration(s.durationMillis / 1000);
+            if (typeof s.positionMillis === "number") onPosition?.(s.positionMillis / 1000);
+          }}
+          onLoad={(meta: any) => {
+            if (meta?.durationMillis) setDuration(meta.durationMillis / 1000);
           }}
         />
 
-        {/* Drawing overlay */}
-        {drawMode && (
-          <View
-            style={[StyleSheet.absoluteFill, { backgroundColor: "transparent" }]}
-            {...panResponder.panHandlers}
-          >
-            <Svg style={{ flex: 1 }}>
-              {paths.map((d, i) => (
-                <Path
-                  key={i}
-                  d={`M${d}`}
-                  stroke="red"
-                  strokeWidth={3}
-                  fill="none"
-                />
-              ))}
-              {currentPath ? (
-                <Path d={`M${currentPath}`} stroke="red" strokeWidth={3} fill="none" />
-              ) : null}
-            </Svg>
-          </View>
-        )}
+        {/* Overlay: render strokes passed from parent + current drawing preview */}
+        <View
+          style={[StyleSheet.absoluteFill, { backgroundColor: "transparent" }]}
+          collapsable={false}
+          pointerEvents={drawMode ? "box-only" : "none"}
+          {...(drawMode ? panResponder.panHandlers : {})}
+        >
+          <Svg style={{ flex: 1 }}>
+            {strokes.map((d, i) => (
+              <Path
+                key={i}
+                d={d}
+                stroke="red"
+                strokeWidth={3}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            ))}
+            {!!currentPath && (
+              <Path
+                d={currentPath}
+                stroke="red"
+                strokeWidth={3}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            )}
+          </Svg>
+        </View>
       </View>
 
-      {/* Progress bar */}
       <Slider
         style={styles.slider}
         minimumValue={0}
@@ -105,12 +147,12 @@ export default function VideoPlayerCard({ userData }: VideoPlayerCardProps) {
         value={status.positionMillis ? status.positionMillis / 1000 : 0}
         minimumTrackTintColor="#4A90E2"
         maximumTrackTintColor="#888"
-        onSlidingComplete={(val: any) =>
-          playerRef.current?.setPositionAsync(val * 1000)
-        }
+        onSlidingStart={async () => {
+          if (status.isPlaying) await playerRef.current?.pauseAsync().catch(() => {});
+        }}
+        onSlidingComplete={(val: number) => playerRef.current?.setPositionAsync(val * 1000)}
       />
 
-      {/* Controls */}
       <View style={styles.controls}>
         <View style={styles.avatar}>
           <Text style={styles.avatarText}>{initials}</Text>
@@ -121,7 +163,6 @@ export default function VideoPlayerCard({ userData }: VideoPlayerCardProps) {
         </Text>
 
         <View style={styles.icons}>
-          {/* Play/Pause */}
           <TouchableOpacity
             onPress={() =>
               status.isPlaying
@@ -137,8 +178,7 @@ export default function VideoPlayerCard({ userData }: VideoPlayerCardProps) {
             />
           </TouchableOpacity>
 
-          {/* Toggle Draw */}
-          <TouchableOpacity onPress={() => setDrawMode((prev) => !prev)}>
+          <TouchableOpacity onPress={toggleDraw}>
             <Ionicons
               name="pencil"
               size={20}
@@ -147,14 +187,8 @@ export default function VideoPlayerCard({ userData }: VideoPlayerCardProps) {
             />
           </TouchableOpacity>
 
-          {/* Clear Drawings */}
-          <TouchableOpacity onPress={() => setPaths([])}>
-            <Ionicons
-              name="trash-outline"
-              size={20}
-              color="#fff"
-              style={styles.icon}
-            />
+          <TouchableOpacity onPress={() => setCurrentPath("")}>
+            <Ionicons name="trash-outline" size={20} color="#fff" style={styles.icon} />
           </TouchableOpacity>
         </View>
       </View>
@@ -163,18 +197,9 @@ export default function VideoPlayerCard({ userData }: VideoPlayerCardProps) {
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "#000",
-    overflow: "hidden",
-  },
-  video: {
-    width: "100%",
-    height: 220,
-  },
-  slider: {
-    width: "100%",
-    height: 30,
-  },
+  card: { backgroundColor: "#000", overflow: "hidden" },
+  video: { width: "100%", height: 220 },
+  slider: { width: "100%", height: 30 },
   controls: {
     flexDirection: "row",
     alignItems: "center",
@@ -184,28 +209,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#111",
   },
   avatar: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: "#4CAF50",
-    justifyContent: "center",
-    alignItems: "center",
+    width: 28, height: 28, borderRadius: 14,
+    backgroundColor: "#4CAF50", justifyContent: "center", alignItems: "center",
   },
-  avatarText: {
-    color: "#fff",
-    fontSize: 12,
-    fontWeight: "bold",
-  },
-  timestamp: {
-    color: "#fff",
-    fontSize: 14,
-    fontWeight: "500",
-  },
-  icons: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  icon: {
-    marginHorizontal: 8,
-  },
+  avatarText: { color: "#fff", fontSize: 12, fontWeight: "bold" },
+  timestamp: { color: "#fff", fontSize: 14, fontWeight: "500" },
+  icons: { flexDirection: "row", alignItems: "center" },
+  icon: { marginHorizontal: 8 },
 });
