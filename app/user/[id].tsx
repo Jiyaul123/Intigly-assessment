@@ -34,7 +34,7 @@ export default function UserDetail() {
   const [user, setUser] = useState<ViewUser | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [comments, setComments] = useState<CommentRow[]>([]);
-  const [activeStrokes, setActiveStrokes] = useState<string[]>([]); 
+  const [activeStrokes, setActiveStrokes] = useState<string[]>([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -42,7 +42,7 @@ export default function UserDetail() {
   const [currentTime, setCurrentTime] = useState(0);
   const [comment, setComment] = useState("");
 
-  const lastQueryRef = useRef(0); 
+  const lastQueryRef = useRef(0);
   const THROTTLE_MS = 200;
 
   const formatTimestamp = useCallback((seconds: number) => {
@@ -132,11 +132,20 @@ export default function UserDetail() {
         const rows = await StrokeDao.listActiveAt(sessionId, atMs);
         setActiveStrokes(rows.map((s) => s.d));
       } catch (e) {
-        // non-fatal
+        console.warn("Failed to load active strokes", e);
       }
     },
     [sessionId]
   );
+
+  const clearActiveStrokes = useCallback(async () => {
+    if (!sessionId) return;
+    const atMs = Math.round(currentTime * 1000);
+    const rows = await StrokeDao.listActiveAt(sessionId, atMs);
+    await StrokeDao.deleteByIds(rows.map(r => r._id));
+    const refreshed = await StrokeDao.listActiveAt(sessionId, atMs);
+    setActiveStrokes(refreshed.map(s => s.d));
+  }, [sessionId, currentTime]);
 
   if (loading) {
     return (
@@ -169,8 +178,9 @@ export default function UserDetail() {
         userData={{ name: user.name } as any}
         videoUri={VIDEO_URI}
         onPosition={handlePosition}     // updates current time + queries active strokes
-        onStrokeComplete={handleStrokeComplete} 
+        onStrokeComplete={handleStrokeComplete}
         strokes={activeStrokes}         // render-only strokes for current time
+        onClearActiveStrokes={clearActiveStrokes}
       />
 
       <ScrollView contentContainerStyle={styles.scrollContent}>

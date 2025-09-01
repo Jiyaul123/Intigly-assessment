@@ -20,7 +20,7 @@ const startsWithMove = /^\s*M\s*-?\d+(\.\d+)?\s+-?\d+(\.\d+)?/i;
 export class StrokeDao {
   static async add(input: {
     sessionId: string;
-    d: string; 
+    d: string;
     tStartMillis: number;
     tEndMillis?: number;
     color?: string;
@@ -70,5 +70,22 @@ export class StrokeDao {
       )
       .sorted("tStartMillis");
     return detachAll<StrokeRow>(rows);
+  }
+
+  static async deleteByIds(ids: string[]) {
+    if (!ids.length) return;
+    const r = await openRealm();
+    r.write(() => {
+      const toDelete = r.objects("StrokeData").filtered("_id IN $0", ids);
+      r.delete(toDelete);
+    });
+  }
+
+  static async deleteAllForSession(sessionId: string) {
+    const r = await openRealm();
+    r.write(() => {
+      const all = r.objects("StrokeData").filtered("sessionId == $0", sessionId);
+      r.delete(all);
+    });
   }
 }

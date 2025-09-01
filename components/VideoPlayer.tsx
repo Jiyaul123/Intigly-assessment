@@ -18,6 +18,9 @@ type VideoPlayerCardProps = {
   onPosition?: (sec: number) => void;
   onStrokeComplete?: (payload: { d: string; tStartMillis: number; tEndMillis: number }) => void;
   strokes?: string[];
+
+  onClearActiveStrokes?: () => void;  // single tap
+  onClearAllStrokes?: () => void;     // long press
 };
 
 export default function VideoPlayerCard({
@@ -26,6 +29,8 @@ export default function VideoPlayerCard({
   onPosition,
   onStrokeComplete,
   strokes = [],
+  onClearActiveStrokes,     // NEW
+  onClearAllStrokes,        // NEW
 }: VideoPlayerCardProps) {
   const playerRef = useRef<Video>(null);
   const [status, setStatus] = useState<any>({});
@@ -56,7 +61,7 @@ export default function VideoPlayerCard({
     onPanResponderGrant: (evt) => {
       const { locationX, locationY } = evt.nativeEvent as any;
       setCurrentPath(`M${locationX} ${locationY}`);
-      playerRef.current?.pauseAsync().catch(() => {});
+      playerRef.current?.pauseAsync().catch(() => { });
       strokeStartMsRef.current = Math.round(status?.positionMillis ?? 0);
     },
     onPanResponderMove: (evt) => {
@@ -69,7 +74,7 @@ export default function VideoPlayerCard({
         const tEnd = Math.round(status?.positionMillis ?? strokeStartMsRef.current);
         onStrokeComplete?.({ d, tStartMillis: strokeStartMsRef.current, tEndMillis: tEnd });
       }
-      setCurrentPath(""); // clear preview; persisted path will be rendered by parent when active
+      setCurrentPath("");
     },
     onPanResponderTerminate: () => {
       const d = currentPath.trim();
@@ -81,10 +86,17 @@ export default function VideoPlayerCard({
     },
   });
 
+
+  const handleTrash = () => {
+    setCurrentPath("");
+    onClearActiveStrokes?.();
+  };
+
+
   const toggleDraw = async () => {
     const next = !drawMode;
     setDrawMode(next);
-    if (next) await playerRef.current?.pauseAsync().catch(() => {});
+    if (next) await playerRef.current?.pauseAsync().catch(() => { });
   };
 
   return (
@@ -95,7 +107,7 @@ export default function VideoPlayerCard({
           source={{ uri: videoUri }}
           style={styles.video}
           useNativeControls={false}
-           resizeMode={ResizeMode.COVER} 
+          resizeMode={ResizeMode.COVER}
           onPlaybackStatusUpdate={(s: any) => {
             if (!("isLoaded" in s) || !s.isLoaded) return;
             setStatus(s);
@@ -148,7 +160,7 @@ export default function VideoPlayerCard({
         minimumTrackTintColor="#4A90E2"
         maximumTrackTintColor="#888"
         onSlidingStart={async () => {
-          if (status.isPlaying) await playerRef.current?.pauseAsync().catch(() => {});
+          if (status.isPlaying) await playerRef.current?.pauseAsync().catch(() => { });
         }}
         onSlidingComplete={(val: number) => playerRef.current?.setPositionAsync(val * 1000)}
       />
@@ -187,7 +199,10 @@ export default function VideoPlayerCard({
             />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => setCurrentPath("")}>
+          <TouchableOpacity
+            onPress={handleTrash}
+          >
+
             <Ionicons name="trash-outline" size={20} color="#fff" style={styles.icon} />
           </TouchableOpacity>
         </View>
