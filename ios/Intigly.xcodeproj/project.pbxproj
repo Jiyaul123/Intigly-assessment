@@ -8,28 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		2EE96AB730C4A1E0CC0F0415 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD11084AC35630EE6594DD /* ExpoModulesProvider.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		60EAB06427F94B736C6B7175 /* libPods-Intingly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE65F22B8D32176ECB8B3D69 /* libPods-Intingly.a */; };
-		8DBB37DCB3005EB3B990CF0C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1B4599DB3BEC3FACF4E57276 /* PrivacyInfo.xcprivacy */; };
+		821F877BD037070694E4E478 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3D231EAA11C0A87B761BBB /* ExpoModulesProvider.swift */; };
+		96100859586805A244C51A73 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A90B957EC79CD2848107F3F0 /* PrivacyInfo.xcprivacy */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		E582C28EEDC08B508D18E269 /* libPods-Intigly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 713794B8DA9371FE19D4459E /* libPods-Intigly.a */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0ADD11084AC35630EE6594DD /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Intingly/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Intingly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intingly.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Intingly/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Intingly/Info.plist; sourceTree = "<group>"; };
-		1B4599DB3BEC3FACF4E57276 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Intingly/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		718DD06EAF43066E3FF59C45 /* Pods-Intingly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intingly.debug.xcconfig"; path = "Target Support Files/Pods-Intingly/Pods-Intingly.debug.xcconfig"; sourceTree = "<group>"; };
-		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Intingly/SplashScreen.storyboard; sourceTree = "<group>"; };
-		AE65F22B8D32176ECB8B3D69 /* libPods-Intingly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Intingly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Intigly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intigly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Intigly/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Intigly/Info.plist; sourceTree = "<group>"; };
+		1B3D231EAA11C0A87B761BBB /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Intigly/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		5608D832437C3547AD3E3FB4 /* Pods-Intigly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intigly.release.xcconfig"; path = "Target Support Files/Pods-Intigly/Pods-Intigly.release.xcconfig"; sourceTree = "<group>"; };
+		713794B8DA9371FE19D4459E /* libPods-Intigly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Intigly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A90B957EC79CD2848107F3F0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Intigly/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Intigly/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C8093AD69569B8AC316470BD /* Pods-Intingly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intingly.release.xcconfig"; path = "Target Support Files/Pods-Intingly/Pods-Intingly.release.xcconfig"; sourceTree = "<group>"; };
+		E891ED5B40A081C165035807 /* Pods-Intigly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intigly.debug.xcconfig"; path = "Target Support Files/Pods-Intigly/Pods-Intigly.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Intingly/AppDelegate.swift; sourceTree = "<group>"; };
-		F11748442D0722820044C1D9 /* Intingly-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Intingly-Bridging-Header.h"; path = "Intingly/Intingly-Bridging-Header.h"; sourceTree = "<group>"; };
+		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Intigly/AppDelegate.swift; sourceTree = "<group>"; };
+		F11748442D0722820044C1D9 /* Intigly-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Intigly-Bridging-Header.h"; path = "Intigly/Intigly-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,50 +37,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60EAB06427F94B736C6B7175 /* libPods-Intingly.a in Frameworks */,
+				E582C28EEDC08B508D18E269 /* libPods-Intigly.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* Intingly */ = {
+		13B07FAE1A68108700A75B9A /* Intigly */ = {
 			isa = PBXGroup;
 			children = (
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
-				F11748442D0722820044C1D9 /* Intingly-Bridging-Header.h */,
+				F11748442D0722820044C1D9 /* Intigly-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				1B4599DB3BEC3FACF4E57276 /* PrivacyInfo.xcprivacy */,
+				A90B957EC79CD2848107F3F0 /* PrivacyInfo.xcprivacy */,
 			);
-			name = Intingly;
+			name = Intigly;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				AE65F22B8D32176ECB8B3D69 /* libPods-Intingly.a */,
+				713794B8DA9371FE19D4459E /* libPods-Intigly.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4860591A081B304F0B90BF61 /* Intingly */ = {
-			isa = PBXGroup;
-			children = (
-				0ADD11084AC35630EE6594DD /* ExpoModulesProvider.swift */,
-			);
-			name = Intingly;
-			sourceTree = "<group>";
-		};
-		6B0AC016F8D5C30D616B7414 /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				4860591A081B304F0B90BF61 /* Intingly */,
-			);
-			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -93,12 +77,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* Intingly */,
+				13B07FAE1A68108700A75B9A /* Intigly */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				CAC7D39F126C4205C225D370 /* Pods */,
-				6B0AC016F8D5C30D616B7414 /* ExpoModulesProviders */,
+				C078E6761C0841BA56BA1702 /* Pods */,
+				DEE51463B3526A5C1C756AE2 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -108,7 +92,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Intingly.app */,
+				13B07F961A680F5B00A75B9A /* Intigly.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,42 +103,58 @@
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
 			);
 			name = Supporting;
-			path = Intingly/Supporting;
+			path = Intigly/Supporting;
 			sourceTree = "<group>";
 		};
-		CAC7D39F126C4205C225D370 /* Pods */ = {
+		BC01DEA4D5B7A3D7E65BD0C4 /* Intigly */ = {
 			isa = PBXGroup;
 			children = (
-				718DD06EAF43066E3FF59C45 /* Pods-Intingly.debug.xcconfig */,
-				C8093AD69569B8AC316470BD /* Pods-Intingly.release.xcconfig */,
+				1B3D231EAA11C0A87B761BBB /* ExpoModulesProvider.swift */,
+			);
+			name = Intigly;
+			sourceTree = "<group>";
+		};
+		C078E6761C0841BA56BA1702 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E891ED5B40A081C165035807 /* Pods-Intigly.debug.xcconfig */,
+				5608D832437C3547AD3E3FB4 /* Pods-Intigly.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DEE51463B3526A5C1C756AE2 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				BC01DEA4D5B7A3D7E65BD0C4 /* Intigly */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* Intingly */ = {
+		13B07F861A680F5B00A75B9A /* Intigly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Intingly" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Intigly" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				04E1CDB2FE363ED5A01D3EEA /* [Expo] Configure project */,
+				0603CA71E6CD840CEC2C4E59 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				98C35BB224BB37484269759C /* [CP] Embed Pods Frameworks */,
+				1CB489F985E4941D7B736D83 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Intingly;
-			productName = Intingly;
-			productReference = 13B07F961A680F5B00A75B9A /* Intingly.app */;
+			name = Intigly;
+			productName = Intigly;
+			productReference = 13B07F961A680F5B00A75B9A /* Intigly.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +170,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Intingly" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Intigly" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* Intingly */,
+				13B07F861A680F5B00A75B9A /* Intigly */,
 			);
 		};
 /* End PBXProject section */
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				8DBB37DCB3005EB3B990CF0C /* PrivacyInfo.xcprivacy in Resources */,
+				96100859586805A244C51A73 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +218,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
 		};
-		04E1CDB2FE363ED5A01D3EEA /* [Expo] Configure project */ = {
+		0603CA71E6CD840CEC2C4E59 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -235,7 +235,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-Intingly/expo-configure-project.sh\"\n";
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-Intigly/expo-configure-project.sh\"\n";
 		};
 		08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -252,11 +252,29 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Intingly-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Intigly-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1CB489F985E4941D7B736D83 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Intigly/Pods-Intigly-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Intigly/Pods-Intigly-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
@@ -265,7 +283,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Intingly/Pods-Intingly-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Intigly/Pods-Intigly-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
@@ -300,25 +318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Intingly/Pods-Intingly-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98C35BB224BB37484269759C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Intingly/Pods-Intingly-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Intingly/Pods-Intingly-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Intigly/Pods-Intigly-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -329,7 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				2EE96AB730C4A1E0CC0F0415 /* ExpoModulesProvider.swift in Sources */,
+				821F877BD037070694E4E478 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,18 +338,18 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 718DD06EAF43066E3FF59C45 /* Pods-Intingly.debug.xcconfig */;
+			baseConfigurationReference = E891ED5B40A081C165035807 /* Pods-Intigly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Intingly/Intingly.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Intigly/Intigly.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = Intingly/Info.plist;
+				INFOPLIST_FILE = Intigly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -363,8 +363,8 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dev-panicle.Intingly";
-				PRODUCT_NAME = Intingly;
-				SWIFT_OBJC_BRIDGING_HEADER = "Intingly/Intingly-Bridging-Header.h";
+				PRODUCT_NAME = Intigly;
+				SWIFT_OBJC_BRIDGING_HEADER = "Intigly/Intigly-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -374,13 +374,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8093AD69569B8AC316470BD /* Pods-Intingly.release.xcconfig */;
+			baseConfigurationReference = 5608D832437C3547AD3E3FB4 /* Pods-Intigly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Intingly/Intingly.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Intigly/Intigly.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Intingly/Info.plist;
+				INFOPLIST_FILE = Intigly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,8 +394,8 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dev-panicle.Intingly";
-				PRODUCT_NAME = Intingly;
-				SWIFT_OBJC_BRIDGING_HEADER = "Intingly/Intingly-Bridging-Header.h";
+				PRODUCT_NAME = Intigly;
+				SWIFT_OBJC_BRIDGING_HEADER = "Intigly/Intigly-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -529,7 +529,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Intingly" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Intigly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -538,7 +538,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Intingly" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Intigly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

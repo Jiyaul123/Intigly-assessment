@@ -1,27 +1,27 @@
 import CommentCard from "@/components/CommentCard";
 import VideoPlayerCard from "@/components/VideoPlayer";
 import {
-    AnnotationSessionDao,
-    CommentDao,
-    CommentRow,
-    JPUserDao,
-    StrokeDao,
-    VideoDao,
+  AnnotationSessionDao,
+  CommentDao,
+  CommentRow,
+  JPUserDao,
+  StrokeDao,
+  VideoDao,
 } from "@/dao";
 import { fetchUserById, User as RemoteUser } from "@/lib/user";
 import EvilIcons from "@expo/vector-icons/EvilIcons";
 import { useLocalSearchParams } from "expo-router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
-    ActivityIndicator,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 const VIDEO_URI = "https://cdn.esawebb.org/archives/videos/hd_1080p25_screen/weic2513d.mp4";
@@ -208,12 +208,6 @@ export default function UserDetail() {
               value={comment}
               onChangeText={setComment}
             />
-          </View>
-          <View style={styles.actionsRow}>
-            <TouchableOpacity style={styles.iconButton}>
-              <EvilIcons name="pencil" size={26} color="#aaa" />
-            </TouchableOpacity>
-
             <TouchableOpacity style={styles.sendBtn} onPress={handleSend}>
               <EvilIcons name="sc-telegram" size={30} color="#4A90E2" />
             </TouchableOpacity>

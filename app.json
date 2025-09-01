@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Intingly",
+    "name": "Intigly",
     "slug": "Intingly",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -14,8 +14,9 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/adaptive-foreground.png",
+        "backgroundColor": "#ffffff",
+        "monochromeImage": "./assets/images/adaptive-mono.png"
       },
       "edgeToEdgeEnabled": true,
       "package": "com.devpanicle.Intingly"
@@ -30,7 +31,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"

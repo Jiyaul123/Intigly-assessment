@@ -20,7 +20,7 @@ const startsWithMove = /^\s*M\s*-?\d+(\.\d+)?\s+-?\d+(\.\d+)?/i;
 export class StrokeDao {
   static async add(input: {
     sessionId: string;
-    d: string; // must start with 'M x y'
+    d: string; 
     tStartMillis: number;
     tEndMillis?: number;
     color?: string;
